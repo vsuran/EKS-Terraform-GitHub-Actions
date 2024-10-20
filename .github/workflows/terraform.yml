@@ -49,11 +49,12 @@ jobs:
 
     - name: Create S3 Bucket
       run: |
-        aws s3api create-bucket --bucket "my-ews-baket1-vladosur123" --region $AWS_REGION --create-bucket-configuration LocationConstraint=$AWS_REGION || echo "Bucket already exists"
+        aws s3api create-bucket --bucket "my-ews-baket1-vladosur123" --region $AWS_REGION || echo "Bucket already exists"
 
-    - name: Enable Versioning on S3 Bucket
-      run: |
-        aws s3api put-bucket-versioning --bucket "my-ews-baket1-vladosur123"--versioning-configuration Status=Enabled || echo "Versioning already enabled"
+
+    # - name: Enable Versioning on S3 Bucket
+    #   run: |
+    #     aws s3api put-bucket-versioning --bucket "my-ews-baket1-vladosur123" --versioning-configuration Status=Enabled || echo "Versioning already enabled"
 
     - name: Create DynamoDB Table
       run: |
